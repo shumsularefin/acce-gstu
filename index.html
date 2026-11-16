@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChemE Studio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="app/style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+<aside id="side">
+  <div class="brand"><i>Cs</i>ChemE Studio</div>
+  <select id="course" aria-label="Course"></select>
+  <input id="find" placeholder="Search topics…  Ctrl K" aria-label="Search">
+  <nav id="nav"></nav>
+  <div class="foot"><a class="btn ghost sm" href="#/">⌂ Home</a><span style="flex:1"></span><button class="btn ghost sm" id="theme" title="Light / dark">◐</button></div>
+</aside>
+<main id="main">
+  <header id="bar"><button class="btn ghost sm" id="menu">☰</button><div class="crumb" id="crumb"></div><span class="sp"></span></header>
+  <div id="view"></div>
+</main>
+<!-- engine + framework -->
+<script src="app/chem.js"></script>
+<script src="app/core.js"></script>
+<!-- courses: add a new course by adding its files here -->
+<script src="courses/acce201/equipment.js"></script>
+<script src="courses/acce201/absorption.js"></script>
+<script src="courses/acce201/extraction.js"></script>
+<script src="courses/acce201/diffusion.js"></script>
+<script src="courses/acce201/adsorption.js"></script>
+<script src="courses/acce201/distillation.js"></script>
+<script src="courses/acce201/course.js"></script>
+<script src="courses/acce202/labs.js"></script>
+<script>
+  // KaTeX loads deferred; re-render math once ready
+  addEventListener('DOMContentLoaded', () => { App.start(); });
+  addEventListener('load', () => UI.math(document.getElementById('view')));
+</script>
+</body>
+</html>
